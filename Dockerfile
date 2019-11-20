@@ -4,7 +4,7 @@
 #   -e PROVIDERS_AWSEC2_SECRETACCESSKEY='YOUR SECRET ACCESS KEY' \
 #   -it -p 8888 -p 8889 fabienvauchelles/scrapoxy
 
-FROM mhart/alpine-node:8
+FROM mhart/alpine-node:latest
 EXPOSE 8888 8889
 
 
