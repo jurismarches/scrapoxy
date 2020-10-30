@@ -130,7 +130,7 @@ module.exports = class Instance extends EventEmitter {
             winston.debug('[Instance/%s] autorestart', self._model.name);
 
             if (self._model.status === InstanceModel.STARTED) {
-                if (self._manager.aliveInstances.length > 1) {
+                if (self._manager.aliveInstances.length > 1 || !self._alive) {
                     self.remove()
                         .catch((err) => {
                             winston.error('[Instance/%s] Error: Cannot remove started instance for autorestart:', self._model.name, err);
