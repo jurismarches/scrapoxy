@@ -7,14 +7,14 @@
 FROM mhart/alpine-node:latest
 EXPOSE 8888 8889
 
-
 # Install Scrapoxy
 RUN npm install -g scrapoxy
-
 
 # Add configuration
 ADD tools/docker/config.js .
 
+# Override file
+COPY tools/docker/instance.js /usr/lib/node_modules/scrapoxy/server/proxies/manager/instance.js
 
 # Start scrapoxy
 CMD scrapoxy start config.js -d
